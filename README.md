@@ -1,4 +1,4 @@
-## --------------------------------------- Spring Cloud -----------------------------------------
+## -------------------------------- Spring Cloud -------------------------------
 # Endpoints
 # Customer Service
 ![customer-service](https://user-images.githubusercontent.com/75031773/199286306-17461699-42f2-4cbb-ab11-d6c42da17c24.PNG)
