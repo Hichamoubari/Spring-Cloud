@@ -32,6 +32,22 @@ public class BillingServiceApplication {
                             CustomerRestClient customerRestClient, ProductRestClient productRestClient){
 
         return  args -> {
+
+            /*Collection<Customer> customers = customerRestClient.getCustomers();
+            customers.forEach(c->{
+                Customer customer = customerRestClient.getCustomerById(c.getId());
+                Bill bill= billRepository.save(new Bill(null,new Date(),null,customer.getId(),null));
+                PagedModel<Product> productPagedModel=productRestClient.pageProducts();
+                productPagedModel.forEach(p->{
+                    ProductItem productItem = new ProductItem();
+                    productItem.setPrice(p.getPrice());
+                    productItem.setQuantity(1+new Random().nextInt(100));
+                    productItem.setBill(bill);
+                    productItem.setProductId(p.getId());
+                    productItemRepository.save(productItem);
+                });
+            });*/
+
             Customer customer = customerRestClient.getCustomerById(1L);
             Bill bill1= billRepository.save(new Bill(null,new Date(),null,customer.getId(),null));
             PagedModel<Product> productPagedModel=productRestClient.pageProducts();
@@ -44,6 +60,17 @@ public class BillingServiceApplication {
                 productItemRepository.save(productItem);
             });
 
+            Customer customer1 = customerRestClient.getCustomerById(2L);
+            Bill bill2= billRepository.save(new Bill(null,new Date(),null,customer1.getId(),null));
+            PagedModel<Product> productPagedModel1=productRestClient.pageProducts();
+            productPagedModel.forEach(p->{
+                ProductItem productItem = new ProductItem();
+                productItem.setPrice(p.getPrice());
+                productItem.setQuantity(1+new Random().nextInt(100));
+                productItem.setBill(bill2);
+                productItem.setProductId(p.getId());
+                productItemRepository.save(productItem);
+            });
         };
     }
 

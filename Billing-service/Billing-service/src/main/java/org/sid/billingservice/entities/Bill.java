@@ -17,4 +17,15 @@ public class Bill {
     private Collection<ProductItem> productItems;
     private long customerID;
     @Transient private Customer customer;
+
+    public double getTotal()
+    {
+        double sum = 0;
+        for (ProductItem p : productItems)
+        {
+            sum += p.getAmount();
+        }
+        return sum;
+    }
+
 }
